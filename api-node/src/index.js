@@ -1,4 +1,4 @@
-const { getDateTime } = require('./db');
+const {getDateTime} = require('./db');
 
 const express = require('express');
 const morgan = require('morgan');
@@ -10,23 +10,23 @@ const port = process.env.PORT || 3000;
 app.use(morgan('tiny'));
 
 app.get('/', async (req, res) => {
-  const dateTime = await getDateTime();
-  const response = dateTime;
-  response.api = 'node';
-  res.send(response);
+	const dateTime = await getDateTime();
+	const response = dateTime;
+	response.api = 'nodejs';
+	res.send(response);
 });
 
 app.get('/ping', async (_, res) => {
-  res.send('pong');
+	res.send('pong');
 });
 
 const server = app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+	console.log(`Example app listening on port ${port}`);
 });
 
 process.on('SIGTERM', () => {
-  console.debug('SIGTERM signal received: closing HTTP server');
-  server.close(() => {
-    console.debug('HTTP server closed');
-  });
+	console.debug('SIGTERM signal received: closing HTTP server');
+	server.close(() => {
+		console.debug('HTTP server closed');
+	});
 });
