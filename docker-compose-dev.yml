@@ -34,7 +34,6 @@ services:
     build:
       context: ./api-node/
       dockerfile: ./../ApiNodeDockerfile
-      target: dev
     init: true
     volumes:
       - ./api-node:/usr/src/app
@@ -58,7 +57,6 @@ services:
     build:
       context: ./api-golang/
       dockerfile: ./../ApiGolangDockerfile
-      target: dev
     init: true
     volumes:
       - ./api-golang:/app
