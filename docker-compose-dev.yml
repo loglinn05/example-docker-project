@@ -42,7 +42,6 @@ services:
       - example-docker-project-db
     environment:
       - DATABASE_URL=postgres://postgres:foobarbaz@db:5432/postgres
-      - COMPOSE_CONVERT_WINDOWS_PATHS=1
     networks:
       - frontend
       - backend
