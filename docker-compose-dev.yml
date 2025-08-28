@@ -29,6 +29,7 @@ services:
   example-docker-project-api-node:
     labels:
       shipyard.route: '/api/node'
+      shipyard.route.rewrite: true
     image: example-docker-project-api-node
     build:
       context: ./api-node/
@@ -52,6 +53,7 @@ services:
   example-docker-project-api-golang:
     labels:
       shipyard.route: '/api/golang'
+      shipyard.route.rewrite: true
     image: example-docker-project-api-golang
     build:
       context: ./api-golang/
