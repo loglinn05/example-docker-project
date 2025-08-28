@@ -13,6 +13,9 @@ services:
     ports:
       - 5173:5173
   example-docker-project-client-react-nginx:
+    labels:
+      shipyard.primary-route: true
+      shipyard.route: '/'
     image: example-docker-project-client-react-nginx
     build:
       context: ./client-react/
@@ -24,6 +27,8 @@ services:
       - 80:8080
     restart: unless-stopped
   example-docker-project-api-node:
+    labels:
+      shipyard.route: '/api/node'
     image: example-docker-project-api-node
     build:
       context: ./api-node/
@@ -45,6 +50,8 @@ services:
       - 3000:3000
     restart: unless-stopped
   example-docker-project-api-golang:
+    labels:
+      shipyard.route: '/api/golang'
     image: example-docker-project-api-golang
     build:
       context: ./api-golang/
