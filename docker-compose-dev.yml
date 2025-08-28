@@ -31,11 +31,8 @@ services:
       target: dev
     init: true
     volumes:
-      - type: bind
-        source: ./api-node/
-        target: /usr/src/app/
-      - type: volume
-        target: /usr/src/app/node_modules
+      - ./api-node:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on:
       - example-docker-project-db
     environment:
@@ -55,9 +52,7 @@ services:
       target: dev
     init: true
     volumes:
-      - type: bind
-        source: ./api-golang/
-        target: /app/
+      - ./api-golang:/app
     depends_on:
       - example-docker-project-db
     environment:
