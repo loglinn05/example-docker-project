@@ -5,9 +5,6 @@ services:
       context: ./client-react/
       dockerfile: ./../ClientReactDockerfile
     init: true
-    volumes:
-      - ./client-react:/usr/src/app
-      - /usr/src/app/node_modules
     networks:
       - frontend
     ports:
@@ -36,7 +33,7 @@ services:
       dockerfile: ./../ApiNodeDockerfile
     init: true
     volumes:
-      - ./api-node:/usr/src/app
+      - ./api-node/src:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - example-docker-project-db
