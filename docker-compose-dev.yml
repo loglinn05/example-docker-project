@@ -35,7 +35,7 @@ services:
     depends_on:
       - example-docker-project-db
     environment:
-      - DATABASE_URL=postgres://postgres:foobarbaz@db:5432/postgres
+      - DATABASE_URL=postgres://postgres:foobarbaz@example-docker-project-db:5432/postgres
     networks:
       - frontend
       - backend
@@ -54,7 +54,7 @@ services:
     depends_on:
       - example-docker-project-db
     environment:
-      - DATABASE_URL=postgres://postgres:foobarbaz@db:5432/postgres
+      - DATABASE_URL=postgres://postgres:foobarbaz@example-docker-project-db:5432/postgres
       - COMPOSE_CONVERT_WINDOWS_PATHS=1
     networks:
       - frontend
